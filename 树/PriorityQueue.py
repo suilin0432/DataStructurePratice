@@ -1,11 +1,18 @@
 import random
 import time
 # 这里采用 最大堆
+
 class PriorityQueue(object):
     def __init__(self, maxLength=20):
         self.maxLength = maxLength
         self.heap = [-1]*maxLength
         self.length = 0
+
+    def buildHeap(self, l):
+        self.heap = l
+        self.length = len(l)
+        for i in reversed(range((self.length-1)//2)):
+            self.siftDown(i)
 
     def heapSize(self):
         return self.length
@@ -111,7 +118,7 @@ class PriorityQueue(object):
 
 def testPriorityQueue1():
     t1 = time.time()
-    n = 100000
+    n = 10000000
     H = PriorityQueue(n)
     l = [i for i in range(1, n+1)]
     random.shuffle(l)
@@ -119,12 +126,14 @@ def testPriorityQueue1():
     for i in l:
         H.insert(i)
     # H.print()
+    print("buildTime:", time.time() - t1)
+    return
     index = n
-    l = []
+    # l = []
     while H.length:
         k = H.pop()
         assert k == index
-        l.append(k)
+        # l.append(k)
         index -= 1
         # print(k, end=" ")
         # print(H.length, end=" ")
@@ -135,6 +144,38 @@ def testPriorityQueue1():
     print("time: ",t2 - t1)
 
 def testPriorityQueue2():
-    pass
+    n = 10000
+    H = PriorityQueue(n)
+    l = [i for i in range(1, n+1)]
+    random.shuffle(l)
+    for i in l:
+        H.insert(i)
+    H.print()
+    for i in range(n-1, -1, -1):
+        h = H.heap[i]
+        e = H.remove(i)
+        assert h == e
+
+def testPriorityQueue3():
+    t1 = time.time()
+    n = 10000000
+    H = PriorityQueue(n)
+    l = [i for i in range(1, n+1)]
+    random.shuffle(l)
+    H.buildHeap(l)
+    print("buildTime:", time.time()-t1)
+    return
+    # H.print()
+    index = n
+    while H.length:
+        k = H.pop()
+        assert k == index
+        l.append(k)
+        index -= 1
+    t2 = time.time()
+    print(t2-t1)
+
 # testPriorityQueue1()
-testPriorityQueue2()
+# testPriorityQueue2()
+testPriorityQueue3()
+testPriorityQueue1()
