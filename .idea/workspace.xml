@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1b3c2db-9734-40e6-b23d-0dac45b46e1e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/线性数据结构/LinkList.py" afterPath="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/线性数据结构/CircularLinkedList.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/线性数据结构/问题" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py" afterPath="$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" afterPath="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,27 +17,47 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/DataStructurePratice$LinkList.coverage" NAME="LinkList Coverage Results" MODIFIED="1557648810634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
-    <SUITE FILE_PATH="coverage/DataStructurePratice$DoubleLinkedList.coverage" NAME="DoubleLinkedList Coverage Results" MODIFIED="1557648817993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
+    <SUITE FILE_PATH="coverage/DataStructurePratice$DoubleLinkedList.coverage" NAME="DoubleLinkedList Coverage Results" MODIFIED="1557649447229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
     <SUITE FILE_PATH="coverage/DataStructurePratice$Unittests_for_SingleLinkedList_testSingleLinkedList.coverage" NAME="Unittests for SingleLinkedList.testSingleLinkedList Coverage Results" MODIFIED="1557648767584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DoubleLinkedList.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DoubleLinkedList.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+            <state relative-caret-position="63">
+              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleLinkedList.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/线性数据结构/SingleLinkedList.py">
+      <file leaf-file-name="问题" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/线性数据结构/问题">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CircularLinkedList.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/线性数据结构/CircularLinkedList.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="36" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SingleLinkedList.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/线性数据结构/SingleLinkedList.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,8 +79,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/线性数据结构/LinkList.py" />
-        <option value="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" />
+        <option value="$PROJECT_DIR$/线性数据结构/问题" />
+        <option value="$PROJECT_DIR$/线性数据结构/CircularLinkedList.py" />
         <option value="$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py" />
+        <option value="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" />
       </list>
     </option>
   </component>
@@ -393,18 +418,34 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/线性数据结构/SingleLinkedList.py">
+    <entry file="file://$PROJECT_DIR$/线性数据结构/问题">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/线性数据结构/CircularLinkedList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="36" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+        <state relative-caret-position="63">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/线性数据结构/SingleLinkedList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>

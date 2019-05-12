@@ -25,8 +25,11 @@ class SingleLinkedList(object):
 
     def remove(self):
         assert self.length > 0
-        assert self.curr != self.tail
+        assert self.curr != self.tail or self.length == 1
         self.length -= 1
+        if self.length == 0:
+            self.head = self.curr = self.tail = None
+            return
         if self.curr.next == self.tail:
             t = self.tail
             self.tail = self.curr

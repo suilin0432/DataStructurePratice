@@ -1,4 +1,4 @@
-class DoubleLinkedList(object):
+class CircularLinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
@@ -8,6 +8,8 @@ class DoubleLinkedList(object):
         if not self.length:
             self.length += 1
             self.head = self.tail = self.curr = node
+            self.tail.next = self.head
+            self.head.before = self.tail
             return
         self.length += 1
         node.next = self.curr.next
@@ -15,6 +17,7 @@ class DoubleLinkedList(object):
         self.curr.next = node
         if self.tail == self.curr:
             self.tail = self.curr.next
+            self.tail.next = self.head
     def append(self, node):
         if not self.length:
             self.length += 1
@@ -92,11 +95,5 @@ def testDoubleLinkedList():
         a.remove()
         a.print()
         print("head: {0}  curr:{1}  tail:{2}, length:{3}".format(a.head.val, a.curr.val, a.tail.val, a.length))
-    a.setFirst()
-    for i in range(7):
-        a.remove()
-        a.print()
-        print("length:{0}".format(a.length))
-
 
 testDoubleLinkedList()
