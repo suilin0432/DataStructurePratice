@@ -8,6 +8,9 @@ class Stack(object):
     def clear(self):
         self.top = 0
 
+    def length(self):
+        return self.top
+
     def push(self, e):
         assert self.top < self.maxLength
         self.stack[self.top] = e
@@ -24,6 +27,9 @@ class Stack(object):
     def isEmpty(self):
         return self.top == 0
 
+    def isFull(self):
+        return self.top == self.maxLength
+
 def testStack():
     a = Stack()
     for i in range(10):
@@ -32,5 +38,6 @@ def testStack():
     print("pop:")
     for i in range(10):
         print(a.pop())
+        print("length:", a.length())
 
 testStack()
