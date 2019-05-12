@@ -1,4 +1,5 @@
 import random
+import time
 # 这里采用 最大堆
 class PriorityQueue(object):
     def __init__(self, maxLength=20):
@@ -19,6 +20,12 @@ class PriorityQueue(object):
     def rightChild(self, node):
         assert node * 2 + 2 < self.maxLength
         return node * 2 + 2
+
+    def hasRight(self, node):
+        return node * 2 + 2 < self.length
+
+    def hasLeft(self, node):
+        return node * 2 + 1 < self.length
 
     def parent(self, node):
         assert node < self.maxLength and node > 0
@@ -57,21 +64,77 @@ class PriorityQueue(object):
 
     # 将最大的元素取出 然后重新维护
     def pop(self):
-        pass
+        assert self.length > 0
+        self.length -= 1
+        element = self.heap[0]
+        self.heap[0] = self.heap[self.length]
+        node = 0
+        self.siftDown(node)
+        return element
 
+    def siftDown(self, node):
+        while self.hasLeft(node):
+            # if self.length == 5:
+            #     print("## node={0} left={1} right={2}".format(node, 2*node+1, 2*node+2), end=" ")
+            #     self.print()
+            left = self.leftChild(node)
+            right = self.rightChild(node) if self.hasRight(node) else -1
+            leftValue = self.getLeftChild(node)
+            rightValue = self.getRightChild(node) if self.hasRight(node) else -1
+            maxValue = 0
+            maxIndex = 0
+            if leftValue >= rightValue:
+                maxValue = leftValue
+                maxIndex = left
+            else:
+                maxValue = rightValue
+                maxIndex = right
+            # 交换
+            if maxValue > self.heap[node]:
+                t = self.heap[node]
+                self.heap[node] = self.heap[maxIndex]
+                self.heap[maxIndex] = t
+                node = maxIndex
+            else:
+                break
     # 将指定位置的元素取出 然后维护堆
-    def remove(self, pos):
-        pass
+    def remove(self, node):
+        assert node < self.length
+        self.length -= 1
+        element = self.heap[node]
+        self.heap[node] = self.heap[self.length]
+        self.siftDown(node)
+        return element
 
     def print(self):
         print(self.heap)
 
-def testPriorityQueue():
-    H = PriorityQueue()
-    l = [i for i in range(1, 21)]
+def testPriorityQueue1():
+    t1 = time.time()
+    n = 100000
+    H = PriorityQueue(n)
+    l = [i for i in range(1, n+1)]
     random.shuffle(l)
+    # print(l)
     for i in l:
         H.insert(i)
-    H.print()
+    # H.print()
+    index = n
+    l = []
+    while H.length:
+        k = H.pop()
+        assert k == index
+        l.append(k)
+        index -= 1
+        # print(k, end=" ")
+        # print(H.length, end=" ")
+        # H.print()
+    # print()
+    # print(l)
+    t2 = time.time()
+    print("time: ",t2 - t1)
 
-testPriorityQueue()
+def testPriorityQueue2():
+    pass
+# testPriorityQueue1()
+testPriorityQueue2()
