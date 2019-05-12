@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1b3c2db-9734-40e6-b23d-0dac45b46e1e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/线性数据结构/CircularLinkedList.py" afterPath="$PROJECT_DIR$/线性数据结构/CircularLinkedList.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py" afterPath="$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" afterPath="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/线性数据结构/Queue.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/线性数据结构/Stack.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/线性数据结构/问题" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +16,9 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/DataStructurePratice$LinkList.coverage" NAME="LinkList Coverage Results" MODIFIED="1557650069375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
     <SUITE FILE_PATH="coverage/DataStructurePratice$DoubleLinkedList.coverage" NAME="DoubleLinkedList Coverage Results" MODIFIED="1557650163785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
-    <SUITE FILE_PATH="coverage/DataStructurePratice$CircularLinkedList.coverage" NAME="CircularLinkedList Coverage Results" MODIFIED="1557649868614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
+    <SUITE FILE_PATH="coverage/DataStructurePratice$CircularLinkedList.coverage" NAME="CircularLinkedList Coverage Results" MODIFIED="1557650178179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
     <SUITE FILE_PATH="coverage/DataStructurePratice$Unittests_for_SingleLinkedList_testSingleLinkedList.coverage" NAME="Unittests for SingleLinkedList.testSingleLinkedList Coverage Results" MODIFIED="1557648767584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
+    <SUITE FILE_PATH="coverage/DataStructurePratice$Stack.coverage" NAME="Stack Coverage Results" MODIFIED="1557650705554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/线性数据结构" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -32,21 +33,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="问题" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/线性数据结构/问题">
+      <file leaf-file-name="Stack.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/线性数据结构/Stack.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+            <state relative-caret-position="270">
+              <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CircularLinkedList.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Queue.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/线性数据结构/Queue.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CircularLinkedList.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/线性数据结构/CircularLinkedList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+            <state relative-caret-position="120">
+              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -78,10 +89,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/线性数据结构/LinkList.py" />
-        <option value="$PROJECT_DIR$/线性数据结构/问题" />
         <option value="$PROJECT_DIR$/线性数据结构/SingleLinkedList.py" />
         <option value="$PROJECT_DIR$/线性数据结构/DoubleLinkedList.py" />
         <option value="$PROJECT_DIR$/线性数据结构/CircularLinkedList.py" />
+        <option value="$PROJECT_DIR$/线性数据结构/问题" />
+        <option value="$PROJECT_DIR$/线性数据结构/Queue.py" />
+        <option value="$PROJECT_DIR$/线性数据结构/Stack.py" />
       </list>
     </option>
   </component>
@@ -150,7 +163,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.DoubleLinkedList">
+  <component name="RunManager" selected="Python.Stack">
     <configuration default="false" name="LinkList" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -219,6 +232,25 @@
       <module name="DataStructurePratice" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/线性数据结构/CircularLinkedList.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Stack" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/线性数据结构" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DataStructurePratice" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/线性数据结构/Stack.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -366,18 +398,20 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.LinkList" />
       <item index="1" class="java.lang.String" itemvalue="Python.DoubleLinkedList" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for SingleLinkedList.testSingleLinkedList" />
       <item index="3" class="java.lang.String" itemvalue="Python.CircularLinkedList" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Stack" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.DoubleLinkedList" />
-        <item index="1" class="java.lang.String" itemvalue="Python.LinkList" />
-        <item index="2" class="java.lang.String" itemvalue="Python.CircularLinkedList" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for SingleLinkedList.testSingleLinkedList" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.Stack" />
+        <item index="1" class="java.lang.String" itemvalue="Python.CircularLinkedList" />
+        <item index="2" class="java.lang.String" itemvalue="Python.DoubleLinkedList" />
+        <item index="3" class="java.lang.String" itemvalue="Python.LinkList" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for SingleLinkedList.testSingleLinkedList" />
       </list>
     </recent_temporary>
   </component>
@@ -438,18 +472,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/线性数据结构/问题">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/线性数据结构/SingleLinkedList.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/线性数据结构/CircularLinkedList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/线性数据结构/问题">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -462,10 +504,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/线性数据结构/CircularLinkedList.py">
+    <entry file="file://$PROJECT_DIR$/线性数据结构/Queue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/线性数据结构/Stack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding />
         </state>
       </provider>
