@@ -68,6 +68,16 @@ class SingleLinkedList(object):
             print(head.val, end="  ")
             head = head.next
 
+    def printDetail(self):
+        head = self.head
+        index = 0
+        while head and index < self.length:
+            index += 1
+            if head != self.head and head != self.tail:
+                print("value:{0} next:{1}".format(head.val, head.next.val))
+            else:
+                print("value:{0} next:{1}".format(head.val, head.next))
+            head = head.next
 
 class SNode(object):
     def __init__(self, val, next=None):
@@ -84,6 +94,6 @@ def testSingleLinkedList():
         else:
             a.append(SNode(i))
             a.next()
-    a.print()
+    a.printDetail()
 
 testSingleLinkedList()

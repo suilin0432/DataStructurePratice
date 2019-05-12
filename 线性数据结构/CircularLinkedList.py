@@ -13,6 +13,8 @@ class CircularLinkedList(object):
             return
         self.length += 1
         node.next = self.curr.next
+        if node.next:
+            node.next.before = node
         node.before = self.curr
         self.curr.next = node
         if self.tail == self.curr:
@@ -26,6 +28,8 @@ class CircularLinkedList(object):
         self.length += 1
         self.tail.next = node
         node.before = self.tail
+        node.next = self.head
+        self.head.before = node
         self.tail = node
 
     def remove(self):
@@ -38,7 +42,8 @@ class CircularLinkedList(object):
         if self.curr.next == self.tail:
             t = self.tail
             self.tail = self.curr
-            self.curr.next = None
+            self.curr.next = self.head
+            self.head.before = self.tail
             return t
         t = self.curr.next
         self.curr.next = self.curr.next.next
@@ -68,10 +73,20 @@ class CircularLinkedList(object):
 
     def print(self):
         head = self.head
-        while head:
+        index = 0
+        while head and index < self.length:
+            index += 1
             print(head.val, end="  ")
             head = head.next
         print()
+
+    def printDetail(self):
+        head = self.head
+        index = 0
+        while head and index < self.length:
+            index += 1
+            print("value:{0} before:{1} next:{2}".format(head.val, head.before.val, head.next.val))
+            head = head.next
 
 
 class SNode(object):
@@ -80,8 +95,8 @@ class SNode(object):
         self.next = next
         self.before = before
 
-def testDoubleLinkedList():
-    a = DoubleLinkedList()
+def testCircularLinkedList():
+    a = CircularLinkedList()
     a.append(SNode(-1))
     for i in range(10):
         print("head: {0}  curr:{1}  tail:{2}, length:{3}".format(a.head.val, a.curr.val, a.tail.val, a.length))
@@ -90,10 +105,11 @@ def testDoubleLinkedList():
         else:
             a.append(SNode(i))
             a.next()
-    a.print()
-    for i in range(4):
-        a.remove()
-        a.print()
-        print("head: {0}  curr:{1}  tail:{2}, length:{3}".format(a.head.val, a.curr.val, a.tail.val, a.length))
+    a.printDetail()
+    a.setFirst()
+    for i in range(100):
+        print(a.curr.val, end=" ")
+        a.next()
 
-testDoubleLinkedList()
+
+testCircularLinkedList()

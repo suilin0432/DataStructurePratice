@@ -11,6 +11,8 @@ class DoubleLinkedList(object):
             return
         self.length += 1
         node.next = self.curr.next
+        if node.next:
+            node.next.before = node
         node.before = self.curr
         self.curr.next = node
         if self.tail == self.curr:
@@ -70,6 +72,19 @@ class DoubleLinkedList(object):
             head = head.next
         print()
 
+    def printDetail(self):
+        head = self.head
+        index = 0
+        while head and index < self.length:
+            index += 1
+            if head != self.head and head != self.tail:
+                print("value:{0} before:{1} next:{2}".format(head.val, head.before.val, head.next.val))
+            elif head == self.head:
+                print("value:{0} before:{1} next:{2}".format(head.val, head.before, head.next.val))
+            else:
+                print("value:{0} before:{1} next:{2}".format(head.val, head.before.val, head.next))
+            head = head.next
+
 
 class SNode(object):
     def __init__(self, val, before=None, next=None):
@@ -87,7 +102,7 @@ def testDoubleLinkedList():
         else:
             a.append(SNode(i))
             a.next()
-    a.print()
+    a.printDetail()
     for i in range(4):
         a.remove()
         a.print()
