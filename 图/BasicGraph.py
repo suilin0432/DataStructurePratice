@@ -139,6 +139,7 @@ class BasicGraph(object):
                     queue.append(v2)
                 next = self.nextEdge(v1, v2)
 
+    # 也可以使用堆进行实现 ...
     def dijkstra(self, begin=0):
         self.markReset()
         distance = [self.MAXINT] * self.nodeNumber
@@ -169,6 +170,71 @@ class BasicGraph(object):
                         continue
                     distance[i][j] = min(distance[i][j], distance[i][t] + distance[t][j])
         return distance
+
+    # 最小生成树prim算法
+    def prim(self):
+        # 每次找最短的不构成环路的边(在这里不构成环路指的是边两个节点至少有一个节点没有走过...)
+        # 最好使用最小堆进行实现, 这个函数先不用最小堆进行实现, 直接暴力搜索 ^_^ O(∩_∩)O~~
+        self.markReset()
+        e = []
+        edges = []
+        cost = 0
+
+        # 首先找出最小权重的一条边, 然后将边的节点加入到 点集合中, 然后将点的所有边加入到边集合中
+        minIndex = [-1, -1]
+        minValue = self.MAXINT
+        for x in range(self.nodeNumber):
+            for y in range(self.nodeNumber):
+                if self.matrix[x][y] < minValue:
+                    minValue = self.matrix[x][y]
+                    minIndex = [x, y]
+        self.mark[minIndex[0]] = True
+        self.mark[minIndex[1]] = True
+        e.append(minIndex+[self.matrix[minIndex[0]][minIndex[1]]])
+        cost += minValue
+        for i in range(2):
+            next = self.firstEdge(minIndex[i])
+            while next:
+                if not self.mark[next[1]]:
+                    edges.append(next)
+                next = self.nextEdge(next[0], next[1])
+
+        for i in range(self.nodeNumber - 2):
+            minIndex = [-1, -1]
+            minValue = self.MAXINT
+            for i in edges:
+                if not self.mark[i[1]] and self.matrix[i[0]][i[1]] < minValue:
+                    minValue = self.matrix[i[0]][i[1]]
+                    minIndex = [i[0], i[1]]
+            self.mark[minIndex[1]] = True
+            e.append([minIndex] + [self.matrix[minIndex[0]][minIndex[1]]])
+            cost += minValue
+            next = self.firstEdge(minIndex[1])
+            while next:
+                if not self.mark[next[1]]:
+                    edges.append(next)
+                next = self.nextEdge(next[0], next[1])
+        return e, cost
+    def primPriority(self):
+        # 使用优先队列进行 Prim 的实现
+        pass
+
+        # for i in range(self.nodeNumber-1):
+        #     minIndex = [-1, -1]
+        #     minValue = self.MAXINT
+        #     for x in range(self.nodeNumber):
+        #         for y in range(self.nodeNumber):
+        #             if (not self.mark[x] or not self.mark[y]) and self.matrix[x][y] < minValue:
+        #                 minValue = self.matrix[x][y]
+        #                 minIndex = [x, y]
+        #     if minIndex == [-1, -1]:
+        #         return edges
+        #     cost += minValue
+        #     self.mark[minIndex[0]] = True
+        #     self.mark[minIndex[1]] = True
+        #     edges.append(minIndex+[minValue])
+        # return edges
+
 
 def testBasicGraph1():
     graph = BasicGraph(8)
@@ -241,6 +307,22 @@ def testBasicGraph3():
     for i in l:
         print(i)
 
+def testBasicGraph4():
+    graph = BasicGraph(6)
+    matrix = [
+        [0, 0, 7, 0, 9, 0],
+        [0, 0, 5, 0, 0, 6],
+        [7, 5, 0, 1, 0, 2],
+        [0, 0, 1, 0, 0, 2],
+        [9, 0, 0, 0, 0, 1],
+        [0, 6, 2, 2, 1, 0]
+    ]
+    graph.edges(matrix)
+    e, cost = graph.prim()
+    print(e)
+    print(cost)
+
 # testBasicGraph1()
 # testBasicGraph2()
-testBasicGraph3()
+# testBasicGraph3()
+testBasicGraph4()
