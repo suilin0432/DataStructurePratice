@@ -9,6 +9,14 @@ class BasicGraph(object):
         # 标记是否访问过的
         self.mark = [False] * nodeNumber
 
+    # 会默认将所有的0->MAXINT
+    def edges(self, matrix):
+        self.matrix = matrix
+        for i in range(self.nodeNumber):
+            for j in range(self.nodeNumber):
+                if self.matrix[i][j] == 0:
+                    self.matrix[i][j] = self.MAXINT
+
     def firstEdge(self, node):
         assert node < self.nodeNumber
         for i in range(self.nodeNumber):
@@ -55,6 +63,9 @@ class BasicGraph(object):
         assert src < self.nodeNumber and dst < self.nodeNumber
         return self.matrix[src][dst]
 
+    def markReset(self):
+        self.mark = [False] * self.nodeNumber
+
     # 进行图的一些扩展功能实现
     def preDfsTravel(self, begin=0):
         self.markReset()
@@ -65,6 +76,7 @@ class BasicGraph(object):
     def dfsTravel(self, begin=0, pre=True):
         # pre表示是否进行前序周游
         # begin表示开始的节点
+        # print(begin)
         self.mark[begin] = True
         if pre:
             print(begin, end=" ")
@@ -93,8 +105,13 @@ class BasicGraph(object):
                     self.mark[v2] = True
                 next = self.nextEdge(v1, v2)
 
-    def markReset(self):
-        self.mark = [False] * self.nodeNumber
+    def topSort(self):
+        self.markReset()
+        for i in range(0, self.nodeNumber):
+            if not self.mark[i]:
+                self.dfsTravel(i, False)
+
+
 
 def testBasicGraph1():
     graph = BasicGraph(8)
@@ -127,5 +144,22 @@ def testBasicGraph1():
     print()
     graph.bfsTravel()
 
+def testBasicGraph2():
+    graph = BasicGraph(7)
+    matrix = [
+        [0, 1, 1, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 0],
+        [0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0]
+    ]
+    graph.edges(matrix)
+    graph.topSort()
+    print()
+    graph.preDfsTravel()
+    print()
 
-testBasicGraph1()
+# testBasicGraph1()
+testBasicGraph2()
