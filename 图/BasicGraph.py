@@ -6,7 +6,7 @@ class BasicGraph(object):
         self.matrix = [[self.MAXINT]*nodeNumber for _ in range(nodeNumber)]
         self.edgeNumber = 0
         # 标记是否访问过的
-        self.mark = [0] * nodeNumber
+        self.mark = [False] * nodeNumber
 
     def firstEdge(self, node):
         assert node < self.nodeNumber
@@ -54,6 +54,32 @@ class BasicGraph(object):
         assert src < self.nodeNumber and dst < self.nodeNumber
         return self.matrix[src][dst]
 
+    # 进行图的一些扩展功能实现
+    def preDfsTravel(self, begin=0):
+        self.markReset()
+        self.dfsTravel(begin, True)
+    def postDfsTravel(self, begin=0):
+        self.markReset()
+        self.dfsTravel(begin, False)
+    def dfsTravel(self, begin=0, pre=True):
+        # pre表示是否进行前序周游
+        # begin表示开始的节点
+        self.mark[begin] = True
+        if pre:
+            print(begin, end=" ")
+        next = self.firstEdge(begin)
+        while next:
+            v1, v2 = next
+            if not self.mark[v2]:
+                self.dfsTravel(v2, pre)
+            next = self.nextEdge(v1, v2)
+        if not pre:
+            print(begin, end=" ")
+
+
+    def markReset(self):
+        self.mark = [False] * self.nodeNumber
+
 def testBasicGraph1():
     graph = BasicGraph(8)
     adjMatrix = [
@@ -79,6 +105,9 @@ def testBasicGraph1():
                 print(j, end=", ")
         print()
     print(graph.nextEdge(0, 2))
+    graph.preDfsTravel()
+    print()
+    graph.postDfsTravel()
 
 
 testBasicGraph1()
