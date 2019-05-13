@@ -160,8 +160,15 @@ class BasicGraph(object):
                     distance[i] = min(distance[i], distance[minIndex]+self.matrix[minIndex][i])
         return distance
 
-
-
+    def floyd(self):
+        distance = [i.copy() for i in self.matrix]
+        for t in range(self.nodeNumber):
+            for i in range(self.nodeNumber):
+                for j in range(self.nodeNumber):
+                    if i == j:
+                        continue
+                    distance[i][j] = min(distance[i][j], distance[i][t] + distance[t][j])
+        return distance
 
 def testBasicGraph1():
     graph = BasicGraph(8)
@@ -226,8 +233,13 @@ def testBasicGraph3():
         [0, 0, 0, 0, 9, 6, 2, 0]
     ]
     graph.edges(adjMatrix)
+    print("dijkstra:")
     for i in range(8):
         print(graph.dijkstra(i))
+    print("floyd:")
+    l = graph.floyd()
+    for i in l:
+        print(i)
 
 # testBasicGraph1()
 # testBasicGraph2()
