@@ -30,9 +30,19 @@ class BasicGraph(object):
     def setEdge(self, src, dst, wt):
         assert wt < self.MAXINT
         assert src < self.nodeNumber and dst < self.nodeNumber
-        if self.matrix[src][dst] != self.MAXINT:
+        if self.matrix[src][dst] == self.MAXINT:
             self.edgeNumber += 1
         self.matrix[src][dst] = wt
+
+    def setDoubleEdge(self, src, dst, wt):
+        assert wt < self.MAXINT
+        assert src < self.nodeNumber and dst < self.nodeNumber
+        if self.matrix[src][dst] == self.MAXINT:
+            self.edgeNumber += 1
+        self.matrix[src][dst] = wt
+        if self.matrix[dst][src] == self.MAXINT:
+            self.edgeNumber += 1
+        self.matrix[dst][src] = wt
 
     def delEdge(self, src, dst):
         assert src < self.nodeNumber and dst < self.nodeNumber
@@ -43,3 +53,32 @@ class BasicGraph(object):
     def weight(self, src, dst):
         assert src < self.nodeNumber and dst < self.nodeNumber
         return self.matrix[src][dst]
+
+def testBasicGraph1():
+    graph = BasicGraph(8)
+    adjMatrix = [
+        [0, 2, 8, 1, 0, 0, 0, 0],
+        [2, 0, 6, 0, 1, 0, 0, 0],
+        [8, 6, 0, 7, 4, 2, 2, 0],
+        [1, 7, 0, 0, 0, 0, 9, 0],
+        [0, 1, 4, 0, 0, 3, 0, 9],
+        [0, 2, 0, 0, 3, 0, 4, 6],
+        [0, 0, 2, 9, 0, 4, 0, 2],
+        [0, 0, 0, 0, 9, 6, 2, 0]
+    ]
+    l = [(0, 1, 2), (0, 2, 8), (0, 3, 1), (1, 2, 6), (1, 4, 1), (2, 3, 7), (2, 4, 4), (2, 5, 2), (2, 6, 2), (3, 6, 9),
+         (4, 5, 3), (4, 7, 9), (5, 6, 4), (5, 7, 6), (6, 7, 2)]
+    for i in l:
+        graph.setDoubleEdge(i[0], i[1], i[2])
+        print(graph.edgeNumber)
+    for i in graph.matrix:
+        for j in i:
+            if j == graph.MAXINT:
+                print(0, end=", ")
+            else:
+                print(j, end=", ")
+        print()
+    print(graph.nextEdge(0, 2))
+
+
+testBasicGraph1()
