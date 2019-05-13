@@ -1,4 +1,5 @@
 import collections
+from 树 import PriorityQueue
 # 使用矩阵表示连通/距离的
 class BasicGraph(object):
     def __init__(self, nodeNumber = 10):
@@ -217,23 +218,10 @@ class BasicGraph(object):
         return e, cost
     def primPriority(self):
         # 使用优先队列进行 Prim 的实现
+        # 因为是最大堆, 所以将权重按负数存进去进行就可以了
+        # 可以仍然按照之前的想法每次进行边的扩展, 这里为了简单 直接一次性将边全丢进去...
+        # PS: 之前实现的Priority并没有进行 类型的泛化, 所以... 用不了, 又懒得改... 所以... 就先不实现了
         pass
-
-        # for i in range(self.nodeNumber-1):
-        #     minIndex = [-1, -1]
-        #     minValue = self.MAXINT
-        #     for x in range(self.nodeNumber):
-        #         for y in range(self.nodeNumber):
-        #             if (not self.mark[x] or not self.mark[y]) and self.matrix[x][y] < minValue:
-        #                 minValue = self.matrix[x][y]
-        #                 minIndex = [x, y]
-        #     if minIndex == [-1, -1]:
-        #         return edges
-        #     cost += minValue
-        #     self.mark[minIndex[0]] = True
-        #     self.mark[minIndex[1]] = True
-        #     edges.append(minIndex+[minValue])
-        # return edges
 
 
 def testBasicGraph1():
