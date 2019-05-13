@@ -12,10 +12,13 @@ class BasicGraph(object):
     # 会默认将所有的0->MAXINT
     def edges(self, matrix):
         self.matrix = matrix
+        self.edgeNumber = 0
         for i in range(self.nodeNumber):
             for j in range(self.nodeNumber):
                 if self.matrix[i][j] == 0:
                     self.matrix[i][j] = self.MAXINT
+                else:
+                    self.edgeNumber+=1
 
     def firstEdge(self, node):
         assert node < self.nodeNumber
@@ -113,8 +116,8 @@ class BasicGraph(object):
                 self.dfsTravel(i, False)
 
     def topSortBfs(self):
+        # PS: 不需要mark标记, 因为所有节点都只会 有一次没有先决条件的出现
         # 将所有无先决条件的节点打印出来
-        # self.markReset()
         count = [0] * self.nodeNumber
         queue = collections.deque()
         for i in range(self.nodeNumber):
@@ -123,7 +126,6 @@ class BasicGraph(object):
                     count[j] += 1
         for i in range(self.nodeNumber):
             if count[i] == 0:
-                # self.mark[i] = True
                 queue.append(i)
         while queue:
             node = queue.popleft()
@@ -137,6 +139,26 @@ class BasicGraph(object):
                     queue.append(v2)
                 next = self.nextEdge(v1, v2)
 
+    def dijkstra(self, begin=0):
+        self.markReset()
+        distance = [self.MAXINT] * self.nodeNumber
+        self.mark[begin] = True
+        for i in range(self.nodeNumber):
+            distance[i] = self.matrix[begin][i]
+        for _ in range(self.nodeNumber-1):
+            minIndex = -1
+            minValue = self.MAXINT
+            for i in range(self.nodeNumber):
+                if not self.mark[i] and distance[i] < minValue:
+                    minValue = distance[i]
+                    minIndex = i
+            if minIndex == -1:
+                return distance
+            self.mark[minIndex] = True
+            for i in range(self.nodeNumber):
+                if not self.mark[i]:
+                    distance[i] = min(distance[i], distance[minIndex]+self.matrix[minIndex][i])
+        return distance
 
 
 
@@ -191,5 +213,22 @@ def testBasicGraph2():
     graph.topSortBfs()
     print()
 
+def testBasicGraph3():
+    graph = BasicGraph(8)
+    adjMatrix = [
+        [0, 2, 8, 1, 0, 0, 0, 0],
+        [2, 0, 6, 0, 1, 0, 0, 0],
+        [8, 6, 0, 7, 4, 2, 2, 0],
+        [1, 7, 0, 0, 0, 0, 9, 0],
+        [0, 1, 4, 0, 0, 3, 0, 9],
+        [0, 2, 0, 0, 3, 0, 4, 6],
+        [0, 0, 2, 9, 0, 4, 0, 2],
+        [0, 0, 0, 0, 9, 6, 2, 0]
+    ]
+    graph.edges(adjMatrix)
+    for i in range(8):
+        print(graph.dijkstra(i))
+
 # testBasicGraph1()
-testBasicGraph2()
+# testBasicGraph2()
+testBasicGraph3()
