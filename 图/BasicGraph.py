@@ -1,3 +1,4 @@
+import collections
 # 使用矩阵表示连通/距离的
 class BasicGraph(object):
     def __init__(self, nodeNumber = 10):
@@ -76,6 +77,21 @@ class BasicGraph(object):
         if not pre:
             print(begin, end=" ")
 
+    def bfsTravel(self, begin=0):
+        self.markReset()
+        queue = collections.deque()
+        queue.append(begin)
+        self.mark[begin] = True
+        while queue:
+            node = queue.popleft()
+            print(node, end=" ")
+            next = self.firstEdge(node)
+            while next:
+                v1, v2 = next
+                if not self.mark[v2]:
+                    queue.append(v2)
+                    self.mark[v2] = True
+                next = self.nextEdge(v1, v2)
 
     def markReset(self):
         self.mark = [False] * self.nodeNumber
@@ -108,6 +124,8 @@ def testBasicGraph1():
     graph.preDfsTravel()
     print()
     graph.postDfsTravel()
+    print()
+    graph.bfsTravel()
 
 
 testBasicGraph1()
