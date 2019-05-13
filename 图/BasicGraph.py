@@ -106,10 +106,38 @@ class BasicGraph(object):
                 next = self.nextEdge(v1, v2)
 
     def topSort(self):
+        # 这里只是展示一下思路, 正常来说需要返回一个数组/字符串, 然后reverse一下就是正常顺序了
         self.markReset()
         for i in range(0, self.nodeNumber):
             if not self.mark[i]:
                 self.dfsTravel(i, False)
+
+    def topSortBfs(self):
+        # 将所有无先决条件的节点打印出来
+        # self.markReset()
+        count = [0] * self.nodeNumber
+        queue = collections.deque()
+        for i in range(self.nodeNumber):
+            for j in range(self.nodeNumber):
+                if self.matrix[i][j] != self.MAXINT:
+                    count[j] += 1
+        for i in range(self.nodeNumber):
+            if count[i] == 0:
+                # self.mark[i] = True
+                queue.append(i)
+        while queue:
+            node = queue.popleft()
+            print(node, end=" ")
+            next = self.firstEdge(node)
+            # 将其所有边的终点减去一个节点
+            while next:
+                v1, v2 = next
+                count[v2] -= 1
+                if count[v2] == 0:
+                    queue.append(v2)
+                next = self.nextEdge(v1, v2)
+
+
 
 
 
@@ -156,9 +184,11 @@ def testBasicGraph2():
         [0, 0, 0, 0, 0, 1, 0]
     ]
     graph.edges(matrix)
-    graph.topSort()
-    print()
-    graph.preDfsTravel()
+    # graph.topSort()
+    # print()
+    # graph.preDfsTravel()
+    # print()
+    graph.topSortBfs()
     print()
 
 # testBasicGraph1()
